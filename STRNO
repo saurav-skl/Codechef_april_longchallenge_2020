@@ -1,0 +1,68 @@
+ /*************************************************************************
+          Name : Saurav Lal
+          Jalpaiguri Government Engineering College
+   
+ *************************************************************************/
+#include<bits/stdc++.h>
+#define int long long
+#define forf(i,a,b) for(int i=a;i<b;i++)
+#define forb(i,a,b) for(int i=a;i>=b;i--)
+
+int factorize(long long n) 
+{ 
+    int count = 0; 
+
+    while (!(n % 2)) { 
+        n >>= 1; 
+        count++; 
+    } 
+    
+    for (int i = 3; i <= sqrt(n); i += 2) { 
+        while (n % i == 0) { 
+            count++; 
+            n = n / i; 
+        } 
+    } 
+    if (n > 2)  
+        count++;
+    return count;
+}  
+
+using namespace std;
+
+signed main()
+{
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        int t=1;
+        cin>>t;
+        while(t--)
+        {
+            int n,x,k;
+            cin>>x>>k;
+            int power=pow(2,k);
+            if(x>=power)
+            {
+                if(k==1)
+                {
+                    if(x==1) 
+                        cout<<0<<endl;
+                    else 
+                        cout<<1<<endl;
+                }
+                else
+                {
+                    int total = factorize(x);
+                    if(total>=k) 
+                        cout<<1<<endl;
+                    else 
+                        cout<<0<<endl;
+                }
+            }
+            else 
+                cout<<0<<endl;            
+        }
+    return 0;
+}
+
+
