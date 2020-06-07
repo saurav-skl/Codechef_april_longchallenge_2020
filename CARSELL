@@ -1,0 +1,48 @@
+ /*************************************************************************
+            Name : Saurav Lal
+            Jalpaiguri Government Engineering College
+     
+ *************************************************************************/
+
+
+
+#include<bits/stdc++.h>
+#define int long long
+#define ll long long
+
+#define forf(i,a,b) for(int i=a;i<b;i++)
+#define forb(i,a,b) for(int i=a;i>=b;i--)
+
+using namespace std;
+
+int MOD=1e9+7;
+
+signed main()
+{
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        int t=1,ca=0;
+        cin>>t;
+        while(t--)
+        {
+            ca+=1;
+            int n;
+            cin>>n;
+            int a[n+1];
+            forf(i,1,n+1) {cin>>a[i];}
+            sort(a+1,a+n+1);
+            int s=0,flag=-1;
+            for(int i=n;i>0;--i)
+            {
+                flag++;
+                a[i]=a[i]-flag;
+                if(a[i]<0) a[i]=0;
+            }
+        for(int i=1;i<=n;i++)
+            s+=a[i]%MOD;
+        cout<<s%MOD<<endl;
+        }
+    return 0;
+}
+
+
